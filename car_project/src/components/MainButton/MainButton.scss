@@ -1,0 +1,36 @@
+.ButtonGeneral{
+    
+    border-radius: 6px;
+    background: rgb(195, 62, 142);
+    background: linear-gradient(90deg, rgba(195, 62, 142, 1) 0%, rgba(170, 19, 82, 1) 100%);
+    outline: none;
+    border: none;
+    font-family: 'Gilroy-Regular';
+    font-size: 19px;
+    color: white;
+    display: flex;
+    padding: 15px 0;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    .arrow {
+        background-image: url('./img/Group.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 24px;
+        height: 14px;
+        margin-left: 80px;
+    }
+}
+.MainButton{
+    width: 267px;
+    height: 53px;
+}
+.SmallButton{
+    width: 202px;
+    height: 33px;
+    padding: 0;
+    font-family: 'Gilroy-Regular';
+    font-size: 15px;
+}

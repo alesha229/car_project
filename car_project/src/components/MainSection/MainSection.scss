@@ -1,0 +1,12 @@
+.main{
+    width: 100%;
+    height: calc(100vh - 87px);
+    div{
+        background-image: url('./img/main-screen.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 115%;
+        width: 100%;
+        height: 100%;
+    }
+}

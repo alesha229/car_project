@@ -1,0 +1,86 @@
+.CardCar{
+    width: 1126px;
+    height: 283px;
+    display: flex;
+    align-items: center;
+    margin-left: 160px;
+    border-bottom: 1px solid #494949;
+    .CarImg{
+        background-image: url('./img/car.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 105%;
+        width: 370px;
+        height: 219px;
+        border-radius: 6px;
+    }
+    .CarOptions{
+        display: flex;
+        width: 59% ;
+        flex-direction: row;
+        height: 219px;
+        line-height: 144%;
+        justify-content: space-between;
+        margin-left: 89px;
+        .CarName{
+            font-family: 'Monsterrat-Bold';
+            font-size: 23px;
+            margin-bottom: 29px;
+        }
+        .FirstOptions{
+            font-family: 'Monsterrat-Medium';
+            font-size: 20px;
+            text-align: right;
+        }
+        .SecondOptions{
+            font-family: 'Monsterrat-Regular';
+            font-size: 20px;
+        }
+        .Price{
+            font-family: 'Monsterrat-Medium';
+            font-size: 25px;
+            margin-top: 19px;
+            margin-bottom: 10px;
+        }
+        .CarFirstRow{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column
+        }
+        .CarSecondRow{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+        .CarButtonStore{
+            display: flex;
+            div{
+                width: 34px;
+                height: 34px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 100%;
+                cursor: pointer;
+                transition:transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+
+            }
+            div:hover{
+                transform: scale(1.1);
+            }
+            .CarLike{
+                background-image: url('./img/like.svg');
+            }
+            .CarCompare{
+                background-image: url('./img/compare.svg');
+            }
+            .CarWrite{
+                background-image: url('./img/write.svg');
+            }
+            .CarHide{
+                background-image: url('./img/hide.svg');
+                background-size: 103%;
+            }
+        }
+
+    }
+}

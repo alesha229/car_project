@@ -1,6 +1,5 @@
-.MainButton {
-    width: 267px;
-    height: 53px;
+.ButtonGeneral{
+    
     border-radius: 6px;
     background: rgb(195, 62, 142);
     background: linear-gradient(90deg, rgba(195, 62, 142, 1) 0%, rgba(170, 19, 82, 1) 100%);
@@ -23,4 +22,15 @@
         height: 14px;
         margin-left: 80px;
     }
+}
+.MainButton{
+    width: 267px;
+    height: 53px;
+}
+.SmallButton{
+    width: 202px;
+    height: 33px;
+    padding: 0;
+    font-family: 'Gilroy-Regular';
+    font-size: 15px;
 }

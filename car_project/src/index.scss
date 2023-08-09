@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #000000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,7 +28,7 @@ a:hover {
 body {
   margin: 0;
   min-height: 200vh;
-  background-color: #1E1E1E;
+  background-color: #000000;
 }
 
 h1 {
@@ -38,4 +38,12 @@ h1 {
   margin: 0;
 }
 
-
+h2 {
+  font-size: 47px;
+  font-family: 'Gilroy-Bold';
+  letter-spacing:2px;
+  margin: 0;
+  text-align: center;
+  margin-top: 73px;
+  margin-bottom: 79px;
+}

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './MainSection.scss'
 import MainButton from '../MainButton/MainButton.jsx'
+import MainFind from '../MainFind/MainFind.js'
 
 function MainSection() {
   const [count, setCount] = useState(0)
@@ -15,6 +16,7 @@ function MainSection() {
         </div>
         <div className='down-arrow'><div></div></div>
       </div>
+      <MainFind/>
     </>
   )
 }

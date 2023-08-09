@@ -10,7 +10,7 @@ interface Props {
 const MainButton: React.FC<Props> = ({ onClick, label, arrow, btnStyle, link }) => {
     return (
         <button onClick={onClick}
-            className={btnStyle}
+            className={'ButtonGeneral ' + btnStyle}
         >
             {label}
             <div style={{display:arrow ? 'block' : 'none'}} className='arrow'></div>

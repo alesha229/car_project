@@ -1,11 +1,17 @@
 import './CardCar.scss'
 import MainButton from '../MainButton/MainButton'
+import { FC } from 'react'
+import { ICar } from '../../types'
 
-function CardCar(CarOptions: any) {
-	const car = CarOptions.CarOptions
+interface ICardCarProps {
+	carItem: ICar
+}
+
+const CardCar: FC<ICardCarProps> = ({ carItem }) => {
+	const car = carItem
 
 	const carImg: React.CSSProperties = {
-		backgroundImage: `url(${Car.img})`,
+		backgroundImage: `url(${car.img})`,
 	}
 
 	return (
@@ -17,7 +23,7 @@ function CardCar(CarOptions: any) {
 						<div className='CarName'>{car.name}</div>
 
 						<div className='SecondOptions'>
-							{car.liters}/{car.Power} л.с/{car.engineType}
+							{car.liters}/{car.power} л.с/{car.engineType}
 							<br />
 							{car.transmissionType}
 							<br />

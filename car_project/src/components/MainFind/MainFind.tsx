@@ -19,7 +19,7 @@ const MainFind: FC = () => {
 		<div className='MainFind'>
 			<h2>Актуальные авто в продаже</h2>
 			{cars.map(car => (
-				<CardCar key={car.id} CarOptions={car} />
+				<CardCar key={car.id} carItem={car} />
 			))}
 		</div>
 	)

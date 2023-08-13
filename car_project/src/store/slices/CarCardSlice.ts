@@ -9,7 +9,6 @@ interface ICarCardState {
 
 export const fetchAllCars = createAsyncThunk('cars/fetchAllCars', async () => {
 	const { data } = await axios.get('/cars')
-
 	return data
 })
 

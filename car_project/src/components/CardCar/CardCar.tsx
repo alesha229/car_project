@@ -2,26 +2,28 @@ import './CardCar.scss'
 import MainButton from '../MainButton/MainButton'
 
 function CardCar(CarOptions: any) {
-	const Car = CarOptions.CarOptions
+	const car = CarOptions.CarOptions
+
 	const carImg: React.CSSProperties = {
 		backgroundImage: `url(${Car.img})`,
 	}
+
 	return (
 		<>
 			<div className='CardCar'>
 				<div className='CarImg' style={carImg}></div>
 				<div className='CarOptions'>
 					<div className='CarFirstRow'>
-						<div className='CarName'>{Car.name}</div>
+						<div className='CarName'>{car.name}</div>
 
 						<div className='SecondOptions'>
-							{Car.liters}/{Car.Power} л.с/{Car.engineType}
+							{car.liters}/{car.Power} л.с/{car.engineType}
 							<br />
-							{Car.transmissionType}
+							{car.transmissionType}
 							<br />
-							{Car.carType}
+							{car.carType}
 						</div>
-						<div className='Price'>{Car.price} ₽</div>
+						<div className='Price'>{car.price} ₽</div>
 						<MainButton
 							onClick={() => console.log('1')}
 							label='Купить'
@@ -32,8 +34,8 @@ function CardCar(CarOptions: any) {
 					</div>
 					<div className='CarSecondRow'>
 						<div className='FirstOptions'>
-							{Car.year} <br />
-							{Car.mileage} км
+							{car.year} <br />
+							{car.mileage} км
 						</div>
 						<div className='CarButtonStore'>
 							<div className='CarLike'></div>

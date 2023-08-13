@@ -7,22 +7,20 @@ import CardCar from '../CardCar/CardCar'
 
 const MainFind: FC = () => {
 	const dispatch = useDispatch<AppDispatch>()
-	const {cars} = useAppSelector((state) => state.cars)
+	const { cars } = useAppSelector(state => state.cars)
 
-
-
-	  useEffect(() => {
-      dispatch(fetchAllCars())
+	useEffect(() => {
+		dispatch(fetchAllCars())
 	}, [])
 
-	 console.log('cars', cars)
-   const car = cars.map((car)=>
-   <CardCar key={car.id} CarOptions={car}/>
-   )
+	console.log('cars', cars)
+
 	return (
 		<div className='MainFind'>
 			<h2>Актуальные авто в продаже</h2>
-			{car}
+			{cars.map(car => (
+				<CardCar key={car.id} CarOptions={car} />
+			))}
 		</div>
 	)
 }

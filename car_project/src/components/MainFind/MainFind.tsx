@@ -1,23 +1,28 @@
 import { FC, useEffect } from 'react'
 import './MainFind.scss'
 import { useDispatch } from 'react-redux'
-import { useAppSelector } from '../../store'
+import { AppDispatch, useAppSelector } from '../../store'
 import { fetchAllCars } from '../../store/slices/CarCardSlice'
+import CardCar from '../CardCar/CardCar'
 
 const MainFind: FC = () => {
-	const dispatch = useDispatch()
-	const cars = useAppSelector(state => state.cars.cars)
+	const dispatch = useDispatch<AppDispatch>()
+	const {cars} = useAppSelector((state) => state.cars)
 
-	fetchAllCars()
-	//   useEffect(() => {
-	// }, [])
 
-	console.log('cars', cars)
 
+	  useEffect(() => {
+      dispatch(fetchAllCars())
+	}, [])
+
+	 console.log('cars', cars)
+   const car = cars.map((car)=>
+   <CardCar key={car.id} CarOptions={car}/>
+   )
 	return (
 		<div className='MainFind'>
 			<h2>Актуальные авто в продаже</h2>
-			{/* {car} */}
+			{car}
 		</div>
 	)
 }

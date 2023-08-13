@@ -1,32 +1,45 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { ICar } from '../../types'
-import cars1 from '../../data/db.json'
-const initialState: ICar = {
-    cars:cars1.cars
+import axios from '../../utils/axios'
+
+interface ICarCardState {
+	cars: ICar[]
+	status: string
 }
 
-export const counterSlice = createSlice({
-  name: 'counter',
-  initialState,
-  reducers: {
-    // increment: (state) => {
-    //   // Redux Toolkit allows us to write "mutating" logic in reducers. It
-    //   // doesn't actually mutate the state because it uses the Immer library,
-    //   // which detects changes to a "draft state" and produces a brand new
-    //   // immutable state based off those changes
-    //   state.value += 1
-    // },
-    // decrement: (state) => {
-    //   state.value -= 1
-    // },
-    // incrementByAmount: (state, action: PayloadAction<number>) => {
-    //   state.value += action.payload
-    // },
-  },
+export const fetchAllCars = createAsyncThunk('cars/fetchAllCars', async () => {
+	const { data } = await axios.get('/cars')
+	console.log('data', data)
+
+	return data
 })
 
-// Action creators are generated for each case reducer function
-// export const { increment, decrement, incrementByAmount } = counterSlice.actions
+const initialState: ICarCardState = {
+	cars: [],
+	status: 'loading',
+}
 
-export default counterSlice.reducer
+export const carsSlice = createSlice({
+	name: 'cars',
+	initialState,
+	reducers: {},
+	extraReducers: builder => {
+		builder
+			.addCase(fetchAllCars.pending, (state, action) => {
+				state.cars = []
+				state.status = 'loading'
+			})
+			.addCase(fetchAllCars.fulfilled, (state, action) => {
+				state.cars = action.payload
+				state.status = 'success'
+			})
+			.addCase(fetchAllCars.rejected, (state, action) => {
+				state.cars = []
+				state.status = 'error'
+			})
+	},
+})
+
+export const {} = carsSlice.actions
+
+export default carsSlice.reducer

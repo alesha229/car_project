@@ -1,0 +1,38 @@
+{
+    "cars": [
+        {
+            "id": 1,
+            "name": "Lada Vesta",
+            "year": 2019,
+            "mileage": 100900,
+            "liters": 1.6,
+            "power": 106,
+            "engineType": "Бензин",
+            "transmissionType": "Механика",
+            "carType": "Универсал",
+            "price": "1 129 000",
+            "img": "./src/assets/img/vesta.png",
+            "isLiked": false,
+            "isCompare": false,
+            "isDescription": false,
+            "isHide": false
+        },
+        {
+            "id": 1,
+            "name": "Lada Granta",
+            "year": 2019,
+            "mileage": 100900,
+            "liters": 1.6,
+            "power": 106,
+            "engineType": "Бензин",
+            "transmissionType": "Механика",
+            "carType": "Универсал",
+            "price": "800 000",
+            "img": "./src/assets/img/granta.webp",
+            "isLiked": false,
+            "isCompare": false,
+            "isDescription": false,
+            "isHide": false
+        }
+    ]
+}

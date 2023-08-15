@@ -1,5 +1,5 @@
-import Menu from './components/Menu/Menu.tsx'
-import MainSection from './components/MainSection/MainSection.tsx'
+import Menu from './components/Menu/Menu'
+import MainSection from './components/MainSection/MainSection'
 import './App.scss'
 import { Routes, Route } from 'react-router-dom'
 
@@ -11,7 +11,7 @@ function App() {
 			<Menu />
 			<Routes>
 				<Route path='/' element={<MainSection />} />
-				<Route path='/search-car' element={<MainSection />} />
+				<Route path='/search-car' element={<Menu />} />
 			</Routes>
 		</>
 	)

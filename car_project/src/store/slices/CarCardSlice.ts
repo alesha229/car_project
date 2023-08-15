@@ -5,6 +5,7 @@ import axios from '../../utils/axios'
 interface ICarCardState {
 	cars: ICar[]
 	status: string
+	sortOption: string
 }
 
 export const fetchAllCars = createAsyncThunk('cars/fetchAllCars', async () => {
@@ -15,12 +16,17 @@ export const fetchAllCars = createAsyncThunk('cars/fetchAllCars', async () => {
 const initialState: ICarCardState = {
 	cars: [],
 	status: 'loading',
+	sortOption: ''
 }
 
 export const carsSlice = createSlice({
 	name: 'cars',
 	initialState,
-	reducers: {},
+	reducers: {
+		setSortOption: (state, action) => {
+			state.sortOption = action.payload
+		}
+	},
 	extraReducers: builder => {
 		builder
 			.addCase(fetchAllCars.pending, (state, action) => {

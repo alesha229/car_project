@@ -9,13 +9,14 @@ const SearchForm: FC = () => {
 	const { selects } = useAppSelector(state => state.cars)
 	const dispatch = useDispatch<AppDispatch>()
 
-	let options = []
-
+	let options:any = []
 	useEffect(() => {
 		dispatch(fetchSelect())
 	}, [])
 
-	const selects = selects.map(item => options.push(item))
+	selects.map(item => {
+		options.push({ value: Object.keys(item)[0], label: Object.keys(item)[0] })
+	})
 
 	return (
 		<div className='form'>

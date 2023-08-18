@@ -16,7 +16,7 @@ export interface ICar {
 	isHide: boolean
 }
 
-export interface SelectOption {
+export interface ISelectOption {
   [brand: string]: {
     [model: string]: {
       years: string[];

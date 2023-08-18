@@ -8,16 +8,16 @@ interface ICustomSelect {
 
 interface ICustomSelectProps {
 	options: ICustomSelect[]
-	selectedOption?: string
-	onOptionChange?: (option: string) => void
+	selectedOption: string
+	onOptionChange: (option: string) => void
 	placeholder: string
 }
 
 const CustomSelect: FC<ICustomSelectProps> = ({
 	options,
+	placeholder,
 	selectedOption,
 	onOptionChange,
-	placeholder,
 }) => {
 	return (
 		<Select
@@ -25,10 +25,9 @@ const CustomSelect: FC<ICustomSelectProps> = ({
 			placeholder={placeholder}
 			theme={theme => ({
 				...theme,
-				colors: '#111',
 			})}
-			// value={selectedOption}
-			// onChange={onOptionChange}
+			value={options.find(option => option.value === selectedOption)}
+			onChange={selected => onOptionChange?.(selected?.value || '')}
 			options={options}
 		/>
 	)

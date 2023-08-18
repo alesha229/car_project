@@ -1,12 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { ICar, SelectOption } from '../../types'
+import { ICar, ISelectOption } from '../../types'
 import axios from '../../utils/axios'
 
 interface ICarCardState {
 	cars: ICar[]
-	selects: SelectOption[]
+	selects: ISelectOption[]
 	status: string
-	sortOption: string
 }
 
 export const fetchAllCars = createAsyncThunk('cars/fetchAllCars', async () => {
@@ -23,17 +22,12 @@ const initialState: ICarCardState = {
 	cars: [],
 	selects: [],
 	status: 'loading',
-	sortOption: '',
 }
 
 export const carsSlice = createSlice({
 	name: 'cars',
 	initialState,
-	reducers: {
-		setSortOption: (state, action) => {
-			state.sortOption = action.payload
-		},
-	},
+	reducers: {},
 	extraReducers: builder => {
 		builder
 			// fetchAllCars

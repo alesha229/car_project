@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import carsSlice from './slices/CarCardSlice'
+import carsSlice from './slices/сarSlice'
 import { TypedUseSelectorHook, useSelector } from 'react-redux'
 
 export const store = configureStore({

@@ -1,8 +1,8 @@
 import { FC, useEffect } from 'react'
 import './MainFind.scss'
 import { useDispatch } from 'react-redux'
-import { AppDispatch, useAppSelector } from '../../store'
-import { fetchAllCars } from '../../store/slices/CarCardSlice'
+import { AppDispatch, useAppSelector } from '../../store/store'
+import { fetchAllCars } from '../../store/slices/сarSlice'
 import CardCar from '../CardCar/CardCar'
 
 const MainFind: FC = () => {

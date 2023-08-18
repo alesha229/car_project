@@ -15,3 +15,16 @@ export interface ICar {
 	isDescription: boolean
 	isHide: boolean
 }
+
+export interface SelectOption {
+  [brand: string]: {
+    [model: string]: {
+      years: string[];
+      body: string[];
+      transmission: string[];
+      engine: string[];
+      drive: string[];
+      volume: string[];
+    };
+  };
+}

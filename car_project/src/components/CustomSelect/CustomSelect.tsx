@@ -1,38 +1,35 @@
 import { FC } from 'react'
 import Select from 'react-select'
 
-// const options = [
-// 	{ value: 'lada', label: 'Lada (ВАЗ)' },
-// 	{ value: 'BMW', label: 'Strawberry' },
-// ]
-
 interface ICustomSelect {
 	value: string
 	label: string
 }
 
 interface ICustomSelectProps {
-	options: ICustomSelect
-	selectedOption: string
-	onOptionChange: (option: string) => void
+	options: ICustomSelect[]
+	selectedOption?: string
+	onOptionChange?: (option: string) => void
+	placeholder: string
 }
 
 const CustomSelect: FC<ICustomSelectProps> = ({
 	options,
 	selectedOption,
 	onOptionChange,
+	placeholder,
 }) => {
 	return (
 		<Select
 			classNamePrefix='select'
-			placeholder='Поиск по...'
-			// theme={theme => ({
-			// 	...theme,
-			// 	borderRadius: 12,
-			// })}
-			value={options.find(option => option.value === selectedOption)}
-			onChange={option => onOptionChange(option?.value || '')}
-			options={optionsArray}
+			placeholder={placeholder}
+			theme={theme => ({
+				...theme,
+				colors: '#111',
+			})}
+			// value={selectedOption}
+			// onChange={onOptionChange}
+			options={options}
 		/>
 	)
 }

@@ -34,40 +34,7 @@
 			"isDescription": false,
 			"isHide": false
 		},
-        {
-			"id": 1,
-			"name": "Lada Vesta",
-			"year": 2019,
-			"mileage": 100900,
-			"liters": 1.6,
-			"power": 106,
-			"engineType": "Бензин",
-			"transmissionType": "Механика",
-			"carType": "Универсал",
-			"price": "1 129 000",
-			"img": "./src/assets/img/vesta.png",
-			"isLiked": false,
-			"isCompare": false,
-			"isDescription": false,
-			"isHide": false
-		},
 		{
-			"id": 1,
-			"name": "Lada Granta",
-			"year": 2019,
-			"mileage": 100900,
-			"liters": 1.6,
-			"power": 106,
-			"engineType": "Бензин",
-			"transmissionType": "Механика",
-			"carType": "Универсал",
-			"price": "800 000",
-			"img": "./src/assets/img/granta.webp",
-			"isLiked": false,
-			"isCompare": false,
-			"isDescription": false,
-			"isHide": false
-		},{
 			"id": 1,
 			"name": "Lada Vesta",
 			"year": 2019,
@@ -101,7 +68,7 @@
 			"isDescription": false,
 			"isHide": false
 		},
-        {
+		{
 			"id": 1,
 			"name": "Lada Vesta",
 			"year": 2019,
@@ -135,7 +102,7 @@
 			"isDescription": false,
 			"isHide": false
 		},
-        {
+		{
 			"id": 1,
 			"name": "Lada Vesta",
 			"year": 2019,
@@ -169,7 +136,41 @@
 			"isDescription": false,
 			"isHide": false
 		},
-        {
+		{
+			"id": 1,
+			"name": "Lada Vesta",
+			"year": 2019,
+			"mileage": 100900,
+			"liters": 1.6,
+			"power": 106,
+			"engineType": "Бензин",
+			"transmissionType": "Механика",
+			"carType": "Универсал",
+			"price": "1 129 000",
+			"img": "./src/assets/img/vesta.png",
+			"isLiked": false,
+			"isCompare": false,
+			"isDescription": false,
+			"isHide": false
+		},
+		{
+			"id": 1,
+			"name": "Lada Granta",
+			"year": 2019,
+			"mileage": 100900,
+			"liters": 1.6,
+			"power": 106,
+			"engineType": "Бензин",
+			"transmissionType": "Механика",
+			"carType": "Универсал",
+			"price": "800 000",
+			"img": "./src/assets/img/granta.webp",
+			"isLiked": false,
+			"isCompare": false,
+			"isDescription": false,
+			"isHide": false
+		},
+		{
 			"id": 1,
 			"name": "Lada Vesta",
 			"year": 2019,
@@ -203,6 +204,33 @@
 			"isDescription": false,
 			"isHide": false
 		}
-        
+	],
+
+	"select": [
+		{
+			"lada": {
+				"vesta": {
+					"years": ["2017 - 2022", "2023"],
+					"body": ["Универсал"],
+					"transmission": ["Механика"],
+					"engine": ["Бензин"],
+					"drive": ["Передний"],
+					"volume": ["1.6 л"]
+				}
+			}
+		},
+		
+		{
+			"BMW": {
+				"M3": {
+					"years": ["2014 - 2018", "2023"],
+					"body": ["Универсал"],
+					"transmission": ["Механика"],
+					"engine": ["Бензин"],
+					"drive": ["Передний"],
+					"volume": ["1.6 л"]
+				}
+			}
+		}
 	]
 }

@@ -14,21 +14,13 @@ const SearchForm: FC = () => {
 	const dispatch = useDispatch<AppDispatch>()
 	const selects = useAppSelector(state => state.cars.selects)
 
-	const [selectedBrand, setSelectedBrand] = useState<string>('')
+	let options = []
 
 	useEffect(() => {
 		dispatch(fetchSelect())
 	}, [])
 
-	const brandOptions: IOption[] = selects.flatMap((brandData: any) =>
-		Object.keys(brandData).map((brand: string) => ({
-			value: brand,
-			label: brand,
-		})),
-	)
-
-	console.log(selects)
-	console.log(brandOptions)
+	const selects = selects.map(item => options.push(item))
 
 	return (
 		<div className='form'>

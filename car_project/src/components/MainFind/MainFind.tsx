@@ -13,8 +13,6 @@ const MainFind: FC = () => {
 		dispatch(fetchAllCars())
 	}, [])
 
-	console.log('cars', cars)
-
 	return (
 		<div className='MainFind'>
 			<h2>Актуальные авто в продаже</h2>

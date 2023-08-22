@@ -11,16 +11,20 @@ interface IOption {
 }
 
 const SearchForm: FC = () => {
-	const dispatch = useDispatch<AppDispatch>()
+	const [selectedBrand, setSelectedBrand] = useState<string>('')
 	const selects = useAppSelector(state => state.cars.selects)
-
-	let options = []
+	const dispatch = useDispatch<AppDispatch>()
 
 	useEffect(() => {
 		dispatch(fetchSelect())
 	}, [])
 
-	const selects = selects.map(item => options.push(item))
+	const brandOptions: IOption[] = selects.flatMap(brandData =>
+		Object.keys(brandData).map((brand: string) => ({
+			value: brand,
+			label: brand,
+		})),
+	)
 
 	return (
 		<div className='form'>

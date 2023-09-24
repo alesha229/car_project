@@ -1,6 +1,12 @@
 import { FC } from 'react'
 import Select from 'react-select'
-
+import React, { useState } from 'react';
+function useForceUpdate(){
+    const [value, setValue] = useState(0); // integer state
+    return () => setValue(value => value + 1); // update state to force render
+    // A function that increment 👆🏻 the previous state like here 
+    // is better than directly setting `setValue(value + 1)`
+}
 interface ICustomSelect {
 	value: string
 	label: string
@@ -10,14 +16,18 @@ interface ICustomSelectProps {
 	options: ICustomSelect[]
 	selectedOption: string
 	onOptionChange: (option: string) => void
-	placeholder: string
+	placeholder: string,
+	isDisabled?: boolean
 }
-
+function onChange() {
+	
+}
 const CustomSelect: FC<ICustomSelectProps> = ({
 	options,
 	placeholder,
 	selectedOption,
 	onOptionChange,
+	isDisabled
 }) => {
 	return (
 		<Select
@@ -45,6 +55,7 @@ const CustomSelect: FC<ICustomSelectProps> = ({
 			value={options.find(option => option.value === selectedOption)}
 			onChange={selected => onOptionChange?.(selected?.value || '')}
 			options={options}
+			isDisabled={isDisabled}
 		/>
 	)
 }

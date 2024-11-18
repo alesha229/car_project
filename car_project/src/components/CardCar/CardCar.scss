@@ -1,3 +1,5 @@
+@import '../../assets/mixin.scss';
+
 .CardCar{
     width: 1126px;
     height: 283px;
@@ -5,6 +7,10 @@
     align-items: center;
     margin-left: 160px;
     border-bottom: 1px solid #494949;
+    @include _768 {
+        width: 100%;
+        margin-left: 0;
+     }
     .CarImg{
         background-image: url('./img/car.png');
         background-position: center;
@@ -13,6 +19,9 @@
         width: 370px;
         height: 219px;
         border-radius: 6px;
+        @include _768 {
+            width: 100%;
+         }    
     }
     .CarOptions{
         display: flex;

@@ -52,7 +52,7 @@ const CustomSelect: FC<ICustomSelectProps> = ({
 					// Вы можете настраивать другие стили по мере необходимости
 				},
 			})}
-			value={options.find(option => option.value === selectedOption)}
+			value={(selectedOption =='') ? null:options.find(option => option.value === selectedOption)}
 			onChange={selected => onOptionChange?.(selected?.value || '')}
 			options={options}
 			isDisabled={isDisabled}

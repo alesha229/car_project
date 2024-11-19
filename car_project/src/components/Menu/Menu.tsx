@@ -7,10 +7,13 @@ function Menu() {
   return (
     <>
       <div className='menu-container'>
-        <div className='menu-position-container'>
-        <div className='menu-logo'>
+      <div className='menu-logo'>
           <a href='#'>REACT.AUTO</a>
         </div>
+      <input id="menu-toggle" type="checkbox" />
+    <label className='menu-button-container' htmlFor="menu-toggle">
+    <div className='menu-button'></div></label>
+        <div className='menu-position-container'>
         <div className='menu-link'>
           <a href='#'>Главная</a>
         </div>
@@ -24,6 +27,7 @@ function Menu() {
           <a href='#'>Кабинет</a>
         </div>
       </div>
+     
     </div>
     </>
   )

@@ -41,6 +41,8 @@
     {
       "id": 3,
       "name": "Lada Vesta",
+      "brand": "Lada",
+      "model": "Vesta",
       "year": 2019,
       "mileage": 100900,
       "liters": 1.6,
@@ -58,6 +60,8 @@
     {
       "id": 4,
       "name": "Lada Granta",
+      "brand": "Lada",
+      "model": "Granta",
       "year": 2019,
       "mileage": 100900,
       "liters": 1.6,
@@ -75,6 +79,8 @@
     {
       "id": 5,
       "name": "Lada Vesta",
+      "brand": "Lada",
+      "model": "Vesta",
       "year": 2019,
       "mileage": 100900,
       "liters": 1.6,
@@ -92,6 +98,8 @@
     {
       "id": 6,
       "name": "Lada Granta",
+      "brand": "Lada",
+      "model": "Granta",
       "year": 2019,
       "mileage": 100900,
       "liters": 1.6,
@@ -109,6 +117,8 @@
     {
       "id": 7,
       "name": "Lada Vesta",
+      "brand": "Lada",
+      "model": "Vesta",
       "year": 2019,
       "mileage": 100900,
       "liters": 1.6,
@@ -126,6 +136,8 @@
     {
       "id": 8,
       "name": "Lada Granta",
+      "brand": "Lada",
+      "model": "Granta",
       "year": 2019,
       "mileage": 100900,
       "liters": 1.6,
@@ -143,6 +155,8 @@
     {
       "id": 9,
       "name": "Lada Vesta",
+      "brand": "Lada",
+      "model": "Vesta",
       "year": 2019,
       "mileage": 100900,
       "liters": 1.6,
@@ -160,6 +174,8 @@
     {
       "id": 10,
       "name": "Lada Granta",
+      "brand": "Lada",
+      "model": "Granta",
       "year": 2019,
       "mileage": 100900,
       "liters": 1.6,
@@ -177,6 +193,8 @@
     {
       "id": 11,
       "name": "Lada Vesta",
+      "brand": "Lada",
+      "model": "Vesta",
       "year": 2019,
       "mileage": 100900,
       "liters": 1.6,
@@ -194,6 +212,8 @@
     {
       "id": 12,
       "name": "Lada Granta",
+      "brand": "Lada",
+      "model": "Granta",
       "year": 2019,
       "mileage": 100900,
       "liters": 1.6,

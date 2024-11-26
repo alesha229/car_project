@@ -19,26 +19,6 @@ export const fetchSelect = createAsyncThunk("select/fetchSelect", async () => {
   return data;
 });
 
-export const fetchSelectCars = createAsyncThunk(
-  "select/fetchSelectCars",
-  async (states: any) => {
-    let baseLink = `/cars?`;
-    let isfirst: boolean = true;
-    for (const state in states) {
-      if (state != "") {
-        if (isfirst) {
-          baseLink += state + `=` + states[state];
-          isfirst = false;
-        } else {
-          baseLink += `&` + state + `=` + states[state];
-        }
-      }
-    }
-    const { data } = await axios.get(baseLink);
-    console.log(data);
-    return data;
-  }
-);
 const initialState: ICarCardState = {
   cars: [],
   selects: [],
@@ -53,7 +33,7 @@ export const carsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       // fetchAllCars
-      .addCase(fetchAllCars.pending, (state, action) => {
+      .addCase(fetchAllCars.pending, (state) => {
         state.cars = [];
         state.status = "loading";
       })
@@ -61,13 +41,13 @@ export const carsSlice = createSlice({
         state.cars = action.payload;
         state.status = "success";
       })
-      .addCase(fetchAllCars.rejected, (state, action) => {
+      .addCase(fetchAllCars.rejected, (state) => {
         state.cars = [];
         state.status = "error";
       })
 
       // fetchSelect
-      .addCase(fetchSelect.pending, (state, action) => {
+      .addCase(fetchSelect.pending, (state) => {
         state.selects = [];
         state.status = "loading";
       })
@@ -75,20 +55,7 @@ export const carsSlice = createSlice({
         state.selects = action.payload;
         state.status = "success";
       })
-      .addCase(fetchSelect.rejected, (state, action) => {
-        state.selects = [];
-        state.status = "error";
-      })
-      // fetchSelectCars
-      .addCase(fetchSelectCars.pending, (state, action) => {
-        state.selects = [];
-        state.status = "loading";
-      })
-      .addCase(fetchSelectCars.fulfilled, (state, action) => {
-        state.selects = action.payload;
-        state.status = "success";
-      })
-      .addCase(fetchSelectCars.rejected, (state, action) => {
+      .addCase(fetchSelect.rejected, (state) => {
         state.selects = [];
         state.status = "error";
       });

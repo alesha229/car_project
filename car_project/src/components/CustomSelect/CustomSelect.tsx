@@ -1,12 +1,12 @@
 import { FC } from "react";
 import Select from "react-select";
-import React, { useState } from "react";
-function useForceUpdate() {
-  const [value, setValue] = useState(0); // integer state
-  return () => setValue((value) => value + 1); // update state to force render
-  // A function that increment 👆🏻 the previous state like here
-  // is better than directly setting `setValue(value + 1)`
-}
+// import { useState } from "react";
+// function useForceUpdate() {
+//   const [value, setValue] = useState(0); // integer state
+//   return () => setValue((value) => value + 1); // update state to force render
+//   // A function that increment 👆🏻 the previous state like here
+//   // is better than directly setting `setValue(value + 1)`
+// }
 interface ICustomSelect {
   value: string;
   label: string;
@@ -19,7 +19,7 @@ interface ICustomSelectProps {
   placeholder: string;
   isDisabled?: boolean;
 }
-function onChange() {}
+// function onChange() {}
 const CustomSelect: FC<ICustomSelectProps> = ({
   options,
   placeholder,
@@ -35,15 +35,15 @@ const CustomSelect: FC<ICustomSelectProps> = ({
         ...theme,
         // Настройте стили, используя классы с префиксом "classNamePrefix"
         styles: {
-          control: (provided, state) => ({
+          control: (provided: any, _state: any) => ({
             ...provided,
             // Вы можете добавить пользовательские стили здесь для области управления (ввода)
           }),
-          menu: (provided, state) => ({
+          menu: (provided: any, _state: any) => ({
             ...provided,
             // Вы можете добавить пользовательские стили здесь для выпадающего меню
           }),
-          option: (provided, state) => ({
+          option: (provided: any, _state: any) => ({
             ...provided,
             // Вы можете добавить пользовательские стили здесь для отдельных вариантов
           }),

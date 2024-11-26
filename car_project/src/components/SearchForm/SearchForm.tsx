@@ -1,19 +1,24 @@
 import { FC, useEffect, useState } from "react";
+import watch from "redux-watch";
 import CustomSelect from "../CustomSelect/CustomSelect";
 import "./SearchForm.scss";
-import { AppDispatch, useAppSelector } from "../../store/store";
-import { fetchSelect, fetchSelectCars } from "../../store/slices/сarSlice";
+import { AppDispatch, store, useAppSelector } from "../../store/store";
+import { fetchSelect } from "../../store/slices/сarSlice";
+import { fetchSelectCars } from "../../store/slices/сarResSlice";
 import { useDispatch } from "react-redux";
 import { resolvePath } from "../../utils/resolvePath";
 import MainButton from "../MainButton/MainButton";
 import SearchResult from "../SearchResult/SearchResult";
-
+import { ICar } from "../../types";
+import { connect } from "react-redux";
 interface IOption {
   value: string;
   label: string;
 }
-
-const SearchForm: FC = () => {
+const mapStateToProps = (store: { result: { results: any } }) => ({
+  results: store.result.results,
+});
+const SearchForm: FC = ({ results }: any) => {
   const [selectedBrand, setSelectedBrand] = useState<string>("");
   const [selectedModel, setSelectedModel] = useState<string>("");
   const [selectedCars, setSelectedCars] = useState<string>("");
@@ -24,13 +29,15 @@ const SearchForm: FC = () => {
     },
   ]);
   const selects = useAppSelector((state) => state.cars.selects);
-  const results = useAppSelector((state) => state.cars.selects);
+  const selected = useAppSelector((state) => state.result.results);
   const dispatch = useDispatch<AppDispatch>();
   const states = {
     brand: selectedBrand,
     model: selectedModel,
     // options: modelOptions
   };
+
+  // unsubscribe();
   useEffect(() => {
     dispatch(fetchSelect());
   }, []);
@@ -53,9 +60,12 @@ const SearchForm: FC = () => {
   }));
 
   function findCar() {
-    console.log(states);
     dispatch(fetchSelectCars(states));
   }
+  useEffect(() => {
+    if (results.length > 0 && results != undefined) {
+    }
+  }, [results]);
   return (
     <div className="form">
       <CustomSelect
@@ -78,8 +88,10 @@ const SearchForm: FC = () => {
         btnStyle="SmallButton"
         link="any"
       />
+      {}
+      <SearchResult results={results} />
     </div>
   );
 };
 
-export default SearchForm;
+export default connect(mapStateToProps)(SearchForm);

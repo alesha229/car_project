@@ -1,29 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ICar, ISelectOption } from "../../types";
 import axios from "../../utils/axios";
+import { ICarState } from "../types/stateTypes";
 
-interface ICarCardState {
-  cars: ICar[];
-  selects: ISelectOption[];
-  status: string;
-  results: ICar[];
-}
+export const fetchAllCars = createAsyncThunk(
+  "cars/fetchAllCars",
+  async () => {
+    const { data } = await axios.get("/cars");
+    return data;
+  }
+);
 
-export const fetchAllCars = createAsyncThunk("cars/fetchAllCars", async () => {
-  const { data } = await axios.get("/cars");
-  return data;
-});
-
-export const fetchSelect = createAsyncThunk("select/fetchSelect", async () => {
-  const { data } = await axios.get("/select");
-  return data;
-});
-
-const initialState: ICarCardState = {
+const initialState: ICarState = {
   cars: [],
-  selects: [],
-  status: "loading",
-  results: [],
+  status: "loading"
 };
 
 export const carsSlice = createSlice({
@@ -32,7 +21,6 @@ export const carsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // fetchAllCars
       .addCase(fetchAllCars.pending, (state) => {
         state.cars = [];
         state.status = "loading";
@@ -44,24 +32,8 @@ export const carsSlice = createSlice({
       .addCase(fetchAllCars.rejected, (state) => {
         state.cars = [];
         state.status = "error";
-      })
-
-      // fetchSelect
-      .addCase(fetchSelect.pending, (state) => {
-        state.selects = [];
-        state.status = "loading";
-      })
-      .addCase(fetchSelect.fulfilled, (state, action) => {
-        state.selects = action.payload;
-        state.status = "success";
-      })
-      .addCase(fetchSelect.rejected, (state) => {
-        state.selects = [];
-        state.status = "error";
       });
   },
 });
-
-export const {} = carsSlice.actions;
 
 export default carsSlice.reducer;

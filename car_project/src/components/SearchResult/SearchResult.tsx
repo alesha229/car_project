@@ -14,8 +14,10 @@ import { ICar } from "../../types";
 //   value: string;
 //   label: string;
 // }
-
-const SearchResult: FC = ({ results }: any) => {
+interface SearchResultProps {
+  results: ICar[];
+}
+const SearchResult: FC<SearchResultProps> = ({ results }: SearchResultProps) => {
   return (
     <div>
       {results.map((car: ICar) => (

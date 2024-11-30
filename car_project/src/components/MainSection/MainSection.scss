@@ -1,17 +1,16 @@
 .main {
     width: 100%;
     height: calc(100vh - 87px);
-    background-image: url('./img/main-screen.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 115%;
     position: relative;
     margin-top: 87px;
+    
     .main-screen {
         margin-left: 300px;
         width: auto;
         height: 100%;
-
     }
 
     h1 {
@@ -30,7 +29,7 @@
         div {
             width: 50px;
             height: 50px;
-            background-image: url('./img/arrow-down.svg');
+            background-image: var(--arrow-down-svg, url('./img/arrow-down.svg'));
             background-position: center;
             background-repeat: no-repeat;
             background-size: 115%;

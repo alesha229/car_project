@@ -1,64 +1,74 @@
-import { FC } from "react";
-import Select from "react-select";
-// import { useState } from "react";
-// function useForceUpdate() {
-//   const [value, setValue] = useState(0); // integer state
-//   return () => setValue((value) => value + 1); // update state to force render
-//   // A function that increment 👆🏻 the previous state like here
-//   // is better than directly setting `setValue(value + 1)`
-// }
-interface ICustomSelect {
-  value: string;
-  label: string;
+import { FC, useState, useRef, useEffect } from "react";
+import "./CustomSelect.scss";
+
+interface CustomSelectProps {
+  options: string[];
+  value?: string;
+  onChange: (value: string) => void;
+  placeholder: string;
+  disabled?: boolean;
+  className?: string;
 }
 
-interface ICustomSelectProps {
-  options: ICustomSelect[];
-  selectedOption: string;
-  onOptionChange: (option: string) => void;
-  placeholder: string;
-  isDisabled?: boolean;
-}
-// function onChange() {}
-const CustomSelect: FC<ICustomSelectProps> = ({
+const CustomSelect: FC<CustomSelectProps> = ({
   options,
+  value,
+  onChange,
   placeholder,
-  selectedOption,
-  onOptionChange,
-  isDisabled,
+  disabled = false,
+  className = "",
 }) => {
-  return (
-    <Select
-      classNamePrefix="select"
-      placeholder={placeholder}
-      theme={(theme) => ({
-        ...theme,
-        // Настройте стили, используя классы с префиксом "classNamePrefix"
-        styles: {
-          control: (provided: any, _state: any) => ({
-            ...provided,
-            // Вы можете добавить пользовательские стили здесь для области управления (ввода)
-          }),
-          menu: (provided: any, _state: any) => ({
-            ...provided,
-            // Вы можете добавить пользовательские стили здесь для выпадающего меню
-          }),
-          option: (provided: any, _state: any) => ({
-            ...provided,
-            // Вы можете добавить пользовательские стили здесь для отдельных вариантов
-          }),
-          // Вы можете настраивать другие стили по мере необходимости
-        },
-      })}
-      value={
-        selectedOption == ""
-          ? null
-          : options.find((option) => option.value === selectedOption)
+  const [isOpen, setIsOpen] = useState(false);
+  const selectRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (selectRef.current && !selectRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
       }
-      onChange={(selected) => onOptionChange?.(selected?.value || "")}
-      options={options}
-      isDisabled={isDisabled}
-    />
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleSelect = (option: string) => {
+    onChange(option);
+    setIsOpen(false);
+  };
+
+  return (
+    <div
+      ref={selectRef}
+      className={`custom-select ${className} ${disabled ? "disabled" : ""}`}
+    >
+      <div
+        className={`custom-select__header ${isOpen ? "open" : ""}`}
+        onClick={() => !disabled && setIsOpen(!isOpen)}
+      >
+        <span className={`custom-select__value ${!value ? "placeholder" : ""}`}>
+          {value || placeholder}
+        </span>
+        <span className={`custom-select__arrow ${isOpen ? "open" : ""}`}>▼</span>
+      </div>
+      {isOpen && !disabled && (
+        <ul className="custom-select__options">
+          {options.map((option, index) => (
+            <li
+              key={`${option}-${index}`}
+              className={`custom-select__option ${
+                option === value ? "selected" : ""
+              }`}
+              onClick={() => handleSelect(option)}
+            >
+              {option}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };
 

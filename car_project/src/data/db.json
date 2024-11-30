@@ -1,264 +1,231 @@
 {
+  "selects": {
+    "brands": [
+      {
+        "name": "BMW",
+        "models": ["1 series", "2 series", "3 series", "4 series", "5 series", "6 series", "7 series", "8 series", "X1", "X2", "X3", "X4", "X5", "X6", "X7", "Z4", "M2", "M3", "M4", "M5", "M8"]
+      },
+      {
+        "name": "Mercedes-Benz",
+        "models": ["A-class", "B-class", "C-class", "E-class", "S-class", "GLA", "GLB", "GLC", "GLE", "GLS", "G-class", "CLA", "CLS", "AMG GT"]
+      },
+      {
+        "name": "Audi",
+        "models": ["A1", "A3", "A4", "A5", "A6", "A7", "A8", "Q2", "Q3", "Q5", "Q7", "Q8", "TT", "R8", "RS3", "RS4", "RS5", "RS6", "RS7", "RS Q8"]
+      },
+      {
+        "name": "Toyota",
+        "models": ["Camry", "Corolla", "RAV4", "Land Cruiser", "Highlander", "C-HR", "Prius", "Yaris", "Supra", "86", "Avalon", "Venza"]
+      },
+      {
+        "name": "Volkswagen",
+        "models": ["Golf", "Passat", "Tiguan", "Touareg", "Polo", "Arteon", "T-Roc", "T-Cross", "ID.3", "ID.4", "Jetta", "Atlas"]
+      },
+      {
+        "name": "Lada",
+        "models": ["Vesta", "Granta"]
+      }
+    ],
+    "years": [
+      "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", 
+      "2015", "2014", "2013", "2012", "2011", "2010"
+    ],
+    "bodyTypes": [
+      "Седан", "Хэтчбек", "Универсал", "Внедорожник", "Купе", 
+      "Кабриолет", "Минивэн", "Пикап", "Лифтбек"
+    ],
+    "transmissions": [
+      "Автомат", "Механика", "Робот", "Вариатор"
+    ],
+    "driveTypes": [
+      "Передний", "Задний", "Полный"
+    ],
+    "engineTypes": [
+      "Бензин", "Дизель", "Гибрид", "Электро"
+    ],
+    "volumes": [
+      "1.0", "1.2", "1.4", "1.6", "1.8", "2.0", "2.2", "2.4", 
+      "2.5", "2.8", "3.0", "3.5", "4.0", "4.4", "5.0", "6.0"
+    ],
+    "prices": [
+      "500000", "750000", "1000000", "1250000", "1500000", 
+      "2000000", "2500000", "3000000", "4000000", "5000000",
+      "6000000", "7000000", "8000000", "9000000", "10000000"
+    ],
+    "mileages": [
+      "0", "5000", "10000", "15000", "20000", "25000", "30000",
+      "40000", "50000", "60000", "70000", "80000", "90000",
+      "100000", "125000", "150000", "175000", "200000"
+    ]
+  },
   "cars": [
     {
       "id": 1,
-      "name": "Lada Vesta",
-      "brand": "Lada",
-      "model": "Vesta",
-      "year": 2019,
-      "mileage": 100900,
-      "liters": 1.6,
-      "power": 106,
+      "brand": "BMW",
+      "model": "5 series",
+      "year": "2020",
+      "bodyType": "Седан",
+      "transmission": "Автомат",
+      "driveType": "Полный",
       "engineType": "Бензин",
-      "transmissionType": "Механика",
-      "carType": "Универсал",
-      "price": "1 129 000",
-      "img": "./src/assets/img/vesta.png",
-      "isLiked": false,
-      "isCompare": false,
-      "isDescription": false,
-      "isHide": false
+      "volume": "3.0",
+      "price": "4000000",
+      "mileage": "50000",
+      "image": "https://example.com/bmw-5.jpg"
     },
     {
       "id": 2,
-      "name": "Lada Granta",
-      "brand": "Lada",
-      "model": "Granta",
-      "year": 2019,
-      "mileage": 100900,
-      "liters": 1.6,
-      "power": 106,
-      "engineType": "Бензин",
-      "transmissionType": "Механика",
-      "carType": "Универсал",
-      "price": "800 000",
-      "img": "./src/assets/img/granta.webp",
-      "isLiked": false,
-      "isCompare": false,
-      "isDescription": false,
-      "isHide": false
+      "brand": "Mercedes-Benz",
+      "model": "E-class",
+      "year": "2021",
+      "bodyType": "Седан",
+      "transmission": "Автомат",
+      "driveType": "Задний",
+      "engineType": "Дизель",
+      "volume": "2.0",
+      "price": "5000000",
+      "mileage": "30000",
+      "image": "https://example.com/mercedes-e.jpg"
     },
     {
       "id": 3,
-      "name": "Lada Vesta",
-      "brand": "Lada",
-      "model": "Vesta",
-      "year": 2019,
-      "mileage": 100900,
-      "liters": 1.6,
-      "power": 106,
+      "brand": "Audi",
+      "model": "Q7",
+      "year": "2019",
+      "bodyType": "Внедорожник",
+      "transmission": "Автомат",
+      "driveType": "Полный",
       "engineType": "Бензин",
-      "transmissionType": "Механика",
-      "carType": "Универсал",
-      "price": "1 129 000",
-      "img": "./src/assets/img/vesta.png",
-      "isLiked": false,
-      "isCompare": false,
-      "isDescription": false,
-      "isHide": false
+      "volume": "3.0",
+      "price": "4500000",
+      "mileage": "60000",
+      "image": "https://example.com/audi-q7.jpg"
     },
     {
       "id": 4,
-      "name": "Lada Granta",
       "brand": "Lada",
-      "model": "Granta",
-      "year": 2019,
-      "mileage": 100900,
-      "liters": 1.6,
-      "power": 106,
+      "model": "Vesta",
+      "year": "2019",
+      "bodyType": "Универсал",
+      "transmission": "Механика",
+      "driveType": "Передний",
       "engineType": "Бензин",
-      "transmissionType": "Механика",
-      "carType": "Универсал",
-      "price": "800 000",
-      "img": "./src/assets/img/granta.webp",
-      "isLiked": false,
-      "isCompare": false,
-      "isDescription": false,
-      "isHide": false
+      "volume": "1.6",
+      "price": "1129000",
+      "mileage": "100900",
+      "image": "./src/assets/img/vesta.png"
     },
     {
       "id": 5,
-      "name": "Lada Vesta",
       "brand": "Lada",
-      "model": "Vesta",
-      "year": 2019,
-      "mileage": 100900,
-      "liters": 1.6,
-      "power": 106,
+      "model": "Granta",
+      "year": "2019",
+      "bodyType": "Универсал",
+      "transmission": "Механика",
+      "driveType": "Передний",
       "engineType": "Бензин",
-      "transmissionType": "Механика",
-      "carType": "Универсал",
-      "price": "1 129 000",
-      "img": "./src/assets/img/vesta.png",
-      "isLiked": false,
-      "isCompare": false,
-      "isDescription": false,
-      "isHide": false
+      "volume": "1.6",
+      "price": "800000",
+      "mileage": "100900",
+      "image": "./src/assets/img/granta.webp"
     },
     {
       "id": 6,
-      "name": "Lada Granta",
       "brand": "Lada",
-      "model": "Granta",
-      "year": 2019,
-      "mileage": 100900,
-      "liters": 1.6,
-      "power": 106,
+      "model": "Vesta",
+      "year": "2019",
+      "bodyType": "Универсал",
+      "transmission": "Механика",
+      "driveType": "Передний",
       "engineType": "Бензин",
-      "transmissionType": "Механика",
-      "carType": "Универсал",
-      "price": "800 000",
-      "img": "./src/assets/img/granta.webp",
-      "isLiked": false,
-      "isCompare": false,
-      "isDescription": false,
-      "isHide": false
+      "volume": "1.6",
+      "price": "1129000",
+      "mileage": "100900",
+      "image": "./src/assets/img/vesta.png"
     },
     {
       "id": 7,
-      "name": "Lada Vesta",
       "brand": "Lada",
-      "model": "Vesta",
-      "year": 2019,
-      "mileage": 100900,
-      "liters": 1.6,
-      "power": 106,
+      "model": "Granta",
+      "year": "2019",
+      "bodyType": "Универсал",
+      "transmission": "Механика",
+      "driveType": "Передний",
       "engineType": "Бензин",
-      "transmissionType": "Механика",
-      "carType": "Универсал",
-      "price": "1 129 000",
-      "img": "./src/assets/img/vesta.png",
-      "isLiked": false,
-      "isCompare": false,
-      "isDescription": false,
-      "isHide": false
+      "volume": "1.6",
+      "price": "800000",
+      "mileage": "100900",
+      "image": "./src/assets/img/granta.webp"
     },
     {
       "id": 8,
-      "name": "Lada Granta",
       "brand": "Lada",
-      "model": "Granta",
-      "year": 2019,
-      "mileage": 100900,
-      "liters": 1.6,
-      "power": 106,
+      "model": "Vesta",
+      "year": "2019",
+      "bodyType": "Универсал",
+      "transmission": "Механика",
+      "driveType": "Передний",
       "engineType": "Бензин",
-      "transmissionType": "Механика",
-      "carType": "Универсал",
-      "price": "800 000",
-      "img": "./src/assets/img/granta.webp",
-      "isLiked": false,
-      "isCompare": false,
-      "isDescription": false,
-      "isHide": false
+      "volume": "1.6",
+      "price": "1129000",
+      "mileage": "100900",
+      "image": "./src/assets/img/vesta.png"
     },
     {
       "id": 9,
-      "name": "Lada Vesta",
       "brand": "Lada",
-      "model": "Vesta",
-      "year": 2019,
-      "mileage": 100900,
-      "liters": 1.6,
-      "power": 106,
+      "model": "Granta",
+      "year": "2019",
+      "bodyType": "Универсал",
+      "transmission": "Механика",
+      "driveType": "Передний",
       "engineType": "Бензин",
-      "transmissionType": "Механика",
-      "carType": "Универсал",
-      "price": "1 129 000",
-      "img": "./src/assets/img/vesta.png",
-      "isLiked": false,
-      "isCompare": false,
-      "isDescription": false,
-      "isHide": false
+      "volume": "1.6",
+      "price": "800000",
+      "mileage": "100900",
+      "image": "./src/assets/img/granta.webp"
     },
     {
       "id": 10,
-      "name": "Lada Granta",
       "brand": "Lada",
-      "model": "Granta",
-      "year": 2019,
-      "mileage": 100900,
-      "liters": 1.6,
-      "power": 106,
+      "model": "Vesta",
+      "year": "2019",
+      "bodyType": "Универсал",
+      "transmission": "Механика",
+      "driveType": "Передний",
       "engineType": "Бензин",
-      "transmissionType": "Механика",
-      "carType": "Универсал",
-      "price": "800 000",
-      "img": "./src/assets/img/granta.webp",
-      "isLiked": false,
-      "isCompare": false,
-      "isDescription": false,
-      "isHide": false
+      "volume": "1.6",
+      "price": "1129000",
+      "mileage": "100900",
+      "image": "./src/assets/img/vesta.png"
     },
     {
       "id": 11,
-      "name": "Lada Vesta",
       "brand": "Lada",
-      "model": "Vesta",
-      "year": 2019,
-      "mileage": 100900,
-      "liters": 1.6,
-      "power": 106,
+      "model": "Granta",
+      "year": "2019",
+      "bodyType": "Универсал",
+      "transmission": "Механика",
+      "driveType": "Передний",
       "engineType": "Бензин",
-      "transmissionType": "Механика",
-      "carType": "Универсал",
-      "price": "1 129 000",
-      "img": "./src/assets/img/vesta.png",
-      "isLiked": false,
-      "isCompare": false,
-      "isDescription": false,
-      "isHide": false
+      "volume": "1.6",
+      "price": "800000",
+      "mileage": "100900",
+      "image": "./src/assets/img/granta.webp"
     },
     {
       "id": 12,
-      "name": "Lada Granta",
       "brand": "Lada",
-      "model": "Granta",
-      "year": 2019,
-      "mileage": 100900,
-      "liters": 1.6,
-      "power": 106,
+      "model": "Vesta",
+      "year": "2019",
+      "bodyType": "Универсал",
+      "transmission": "Механика",
+      "driveType": "Передний",
       "engineType": "Бензин",
-      "transmissionType": "Механика",
-      "carType": "Универсал",
-      "price": "800 000",
-      "img": "./src/assets/img/granta.webp",
-      "isLiked": false,
-      "isCompare": false,
-      "isDescription": false,
-      "isHide": false
+      "volume": "1.6",
+      "price": "1129000",
+      "mileage": "100900",
+      "image": "./src/assets/img/vesta.png"
     }
-  ],
-
-  "select": {
-    "Lada": {
-      "Vesta": {
-        "years": ["2017 - 2022", "2023"],
-        "body": ["Универсал"],
-        "transmission": ["Механика"],
-        "engine": ["Бензин"],
-        "drive": ["Передний"],
-        "volume": ["1.6 л"]
-      },
-      "Granta": {
-        "years": ["2017 - 2022", "2023"],
-        "body": ["Универсал"],
-        "transmission": ["Механика"],
-        "engine": ["Бензин"],
-        "drive": ["Передний"],
-        "volume": ["1.6 л"]
-      }
-    },
-
-    "BMW": {
-      "M3": {
-        "years": ["2014 - 2018", "2023"],
-        "body": ["Универсал"],
-        "transmission": ["Механика"],
-        "engine": ["Бензин"],
-        "drive": ["Передний"],
-        "volume": ["1.6 л"]
-      }
-    }
-  }
+  ]
 }

@@ -7,25 +7,30 @@ interface ICarResultState {
   status: string;
 }
 
+export interface SearchStates {
+  brand: string;
+  model: string;
+}
+
 export const fetchSelectCars = createAsyncThunk(
   "select/fetchSelectCars",
-  async (states: any) => {
+  async (states: SearchStates) => {
     let baseLink = `/cars?`;
     let isfirst: boolean = true;
-    for (const state in states) {
-      if (state != "") {
-        if (isfirst) {
-          baseLink += state + `=` + states[state];
-          isfirst = false;
-        } else {
-          baseLink += `&` + state + `=` + states[state];
-        }
+    (Object.keys(states) as Array<keyof SearchStates>).forEach((state) => {
+      const value = states[state];
+      if (value !== "") {
+        baseLink += isfirst 
+          ? `${state}=${value}` 
+          : `&${state}=${value}`;
+        isfirst = false;
       }
-    }
+    });
     const { data } = await axios.get(baseLink);
     return data;
   }
 );
+
 const initialState: ICarResultState = {
   results: [],
   status: "loading",

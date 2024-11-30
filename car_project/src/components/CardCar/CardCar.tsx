@@ -20,7 +20,7 @@ const CardCar: FC<ICardCarProps> = ({ carItem }) => {
         <div className="CarImg" style={carImg}></div>
         <div className="CarOptions">
           <div className="CarFirstRow">
-            <div className="CarName">{car.name}</div>
+            <div className="CarName">{car.brand} {car.model}</div>
 
             <div className="SecondOptions">
               {car.liters}/{car.power} л.с/{car.engineType}

@@ -2,23 +2,30 @@ import { FC, useEffect } from 'react'
 import './MainFind.scss'
 import { useDispatch } from 'react-redux'
 import { AppDispatch, useAppSelector } from '../../store/store'
-import { fetchAllCars } from '../../store/slices/сarSlice'
+import { setResults } from '../../store/slices/сarResSlice'
 import CardCar from '../CardCar/CardCar'
 
 const MainFind: FC = () => {
 	const dispatch = useDispatch<AppDispatch>()
-	const { cars } = useAppSelector(state => state.cars)
+	const { cars, status } = useAppSelector(state => state.cars)
+	const { results } = useAppSelector(state => state.result)
 
 	useEffect(() => {
-		dispatch(fetchAllCars())
-	}, [])
+		if (cars.length > 0) {
+			dispatch(setResults(cars))
+		}
+	}, [cars])
 
 	return (
 		<div className='MainFind'>
 			<h2>Актуальные авто в продаже</h2>
-			{cars.map(car => (
-				<CardCar key={car.id} carItem={car} />
-			))}
+			{status === 'loading' ? (
+				<div>Loading...</div>
+			) : (
+				results.map(car => (
+					<CardCar key={car.id} carItem={car} />
+				))
+			)}
 		</div>
 	)
 }

@@ -39,7 +39,12 @@ const initialState: ICarResultState = {
 export const carResSlice = createSlice({
   name: "carsResult",
   initialState,
-  reducers: {},
+  reducers: {
+    setResults: (state, action) => {
+      state.results = action.payload;
+      state.status = "success";
+    }
+  },
   extraReducers: (builder) => {
     builder
       // fetchSelectCars
@@ -58,6 +63,6 @@ export const carResSlice = createSlice({
   },
 });
 
-export const {} = carResSlice.actions;
+export const { setResults } = carResSlice.actions;
 
 export default carResSlice.reducer;

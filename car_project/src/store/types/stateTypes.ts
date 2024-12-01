@@ -3,17 +3,18 @@ import { Selects } from "../../types/select.types";
 
 export interface ICarState {
   cars: ICar[];
-  status: "loading" | "success" | "error";
+  status: "waiting" | "loading" | "success" | "error";
 }
 
 export interface ICarResultState {
   results: ICar[];
-  status: string;
+  currentCar: ICar | null;
+  status: "waiting" | "loading" | "success" | "error";
 }
 
 export interface ISelectState {
   selects: Selects;
-  status: "loading" | "success" | "error";
+  status: "waiting" | "loading" | "success" | "error";
   selectedBrand: string;
   selectedModel: string;
   selectedYear: string;
@@ -21,11 +22,11 @@ export interface ISelectState {
   selectedTransmission: string;
   selectedDrive: string;
   selectedEngine: string;
+  selectedVolume: string;
   priceFrom: string;
   priceTo: string;
   mileageFrom: string;
   mileageTo: string;
-  selectedVolume: string;
 }
 
 export interface IRootState {

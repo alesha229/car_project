@@ -19,35 +19,43 @@ const CardCar: FC<ICardCarProps> = ({ carItem }) => {
       <div className="CardCar">
         <div className="CarImg" style={carImg}></div>
         <div className="CarOptions">
-          <div className="CarFirstRow">
-            <div className="CarName">{car.brand} {car.model}</div>
-
-            <div className="SecondOptions">
-              {car.liters}/{car.power} л.с/{car.engineType}
-              <br />
-              {car.transmissionType}
-              <br />
-              {car.carType}
+          <div className="CarName">
+            {car.brand} {car.model} <div className="Price">{car.price} ₽</div>
+          </div>
+          <div className="CarProperties">
+            <div className="CarProperty">
+              <span>{car.year}</span>
             </div>
-            <div className="Price">{car.price} ₽</div>
-            <MainButton
+            <div className="CarProperty">
+              <span>{car.mileage} км</span>
+            </div>
+            <div className="CarProperty">
+              <span>{car.engineType} {car.liters}л</span>
+            </div>
+            <div className="CarProperty">
+              <span>{car.power} л.с</span>
+            </div>
+            <div className="CarProperty">
+              <span>{car.transmissionType}</span>
+            </div>
+            <div className="CarProperty">
+              <span>{car.carType}</span>
+            </div>
+          </div>
+          <div className="CarBottom">
+          <MainButton
               label="Купить"
               arrow={false}
               btnStyle="SmallButton"
-              link="/"
+              link={`/car/${car.id}`}
             />
-          </div>
-          <div className="CarSecondRow">
-            <div className="FirstOptions">
-              {car.year} <br />
-              {car.mileage} км
-            </div>
             <div className="CarButtonStore">
               <div className="CarLike"></div>
               <div className="CarCompare"></div>
               <div className="CarWrite"></div>
               <div className="CarHide"></div>
             </div>
+            
           </div>
         </div>
       </div>

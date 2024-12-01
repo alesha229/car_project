@@ -4,12 +4,24 @@ import axios from "../../utils/axios";
 
 interface ICarResultState {
   results: ICar[];
+  currentCar: ICar | null;
   status: string;
 }
 
 export interface SearchStates {
   brand: string;
   model: string;
+  year?: string;
+  bodyType?: string;
+  transmission?: string;
+  driveType?: string;
+  engineType?: string;
+  volume?: string;
+  priceFrom?: string;
+  priceTo?: string;
+  mileageFrom?: string;
+  mileageTo?: string;
+  condition?: string;
 }
 
 export const fetchSelectCars = createAsyncThunk(
@@ -23,6 +35,9 @@ export const fetchSelectCars = createAsyncThunk(
         baseLink += isfirst 
           ? `${state}=${value}` 
           : `&${state}=${value}`;
+        if(state == "condition" && value == "all") {
+          baseLink += `&condition=new&condition=used`
+        }
         isfirst = false;
       }
     });
@@ -31,9 +46,18 @@ export const fetchSelectCars = createAsyncThunk(
   }
 );
 
+export const fetchCarById = createAsyncThunk(
+  "cars/fetchCarById",
+  async (id: string) => {
+    const { data } = await axios.get(`/cars/${id}`);
+    return data;
+  }
+);
+
 const initialState: ICarResultState = {
   results: [],
-  status: "loading",
+  currentCar: null,
+  status: "waiting",
 };
 
 export const carResSlice = createSlice({
@@ -42,23 +66,33 @@ export const carResSlice = createSlice({
   reducers: {
     setResults: (state, action) => {
       state.results = action.payload;
-      state.status = "success";
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
-      // fetchSelectCars
+      // Fetch Select Cars
       .addCase(fetchSelectCars.pending, (state) => {
-        state.results = [];
         state.status = "loading";
       })
       .addCase(fetchSelectCars.fulfilled, (state, action) => {
-        state.results = action.payload;
         state.status = "success";
+        state.results = action.payload;
       })
       .addCase(fetchSelectCars.rejected, (state) => {
-        state.results = [];
         state.status = "error";
+      })
+      // Fetch Car By Id
+      .addCase(fetchCarById.pending, (state) => {
+        state.status = "loading";
+        state.currentCar = null;
+      })
+      .addCase(fetchCarById.fulfilled, (state, action) => {
+        state.status = "success";
+        state.currentCar = action.payload;
+      })
+      .addCase(fetchCarById.rejected, (state) => {
+        state.status = "error";
+        state.currentCar = null;
       });
   },
 });

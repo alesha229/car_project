@@ -9,6 +9,7 @@ import MainButton from "../MainButton/MainButton";
 import SearchResult from "../SearchResult/SearchResult";
 import { ICar } from "../../types";
 import favoriteFind from "./img/favoriteFind.png";
+import Loader from "../Loader/Loader";
 
 interface SearchFormProps {
   results?: ICar[];
@@ -31,6 +32,7 @@ const SearchForm: FC<SearchFormProps> = ({ results = [] }) => {
     mileageFrom,
     mileageTo,
   } = useAppSelector((state) => state.select);
+  const { results: searchResults, status } = useAppSelector((state) => state.result);
 
   useEffect(() => {
     dispatch(fetchSelect());
@@ -119,8 +121,31 @@ const SearchForm: FC<SearchFormProps> = ({ results = [] }) => {
     handleTabClick('all');
   }, []);
 
-  function findCar() {
-    dispatch(fetchSelectCars({ brand: selectedBrand, model: selectedModel } as SearchStates));
+  function findCar(e: React.FormEvent) {
+    e.preventDefault();
+    
+    const searchParams: SearchStates = {
+      brand: selectedBrand,
+      model: selectedModel,
+      year: selectedYear,
+      bodyType: selectedBody,
+      transmission: selectedTransmission,
+      driveType: selectedDrive,
+      engineType: selectedEngine,
+      volume: selectedVolume,
+      priceFrom: priceFrom,
+      priceTo: priceTo,
+      mileageFrom: mileageFrom,
+      mileageTo: mileageTo,
+      condition: activeTab === 'new' ? 'new' : activeTab === 'used' ? 'used' : activeTab === 'all' ? 'all' : undefined 
+    };
+
+    try {
+      dispatch(fetchSelectCars(searchParams));
+    } catch (error) {
+      console.error('Error during search:', error);
+      // Здесь можно добавить отображение ошибки пользователю
+    }
   }
 
   return (
@@ -152,7 +177,7 @@ const SearchForm: FC<SearchFormProps> = ({ results = [] }) => {
           Сохранить поиск
         </button>
       </div>
-      <form className="search-form">
+      <form className="search-form" onSubmit={findCar}>
         <div className="search-form__main">
           <div className="search-form__row">
             <CustomSelect
@@ -242,11 +267,15 @@ const SearchForm: FC<SearchFormProps> = ({ results = [] }) => {
             </div>
           </div>
         </div>
-        <button type="submit" className="search-form__submit" onClick={findCar}>
+        <button type="submit" className="search-form__submit">
           Показать предложения
         </button>
       </form>
-      <SearchResult results={results} />
+      {status === 'loading' && searchResults.length === 0 ? (
+        <Loader />
+      ) : (
+        <SearchResult results={searchResults} />
+      )}
     </div>
   );
 };

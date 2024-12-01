@@ -12,10 +12,9 @@
         margin-left: 0;
      }
     .CarImg{
-        background-image: url('./img/car.png');
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 105%;
+        background-size: cover;
         width: 370px;
         height: 219px;
         border-radius: 6px;
@@ -26,55 +25,68 @@
     .CarOptions{
         display: flex;
         width: 59% ;
-        flex-direction: row;
+        flex-direction: column;
         height: 219px;
-        line-height: 144%;
         justify-content: space-between;
         margin-left: 89px;
         .CarName{
             font-family: 'Monsterrat-Bold';
             font-size: 23px;
-            margin-bottom: 29px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
         }
-        .FirstOptions{
+        .CarProperties{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 25px;
+            max-width: 360px;
+        }
+        .CarProperty{
+            background: rgba(73, 73, 73, 0.15);
+            padding: 8px 12px;
+            border-radius: 6px;
             font-family: 'Monsterrat-Medium';
-            font-size: 20px;
-            text-align: right;
+            font-size: 14px;
+            border: 1px solid rgba(73, 73, 73, 0.5);
+            transition: all 0.2s ease;
+
+            &:hover {
+                border-color: rgba(255, 255, 255, 0.2);
+                background: rgba(73, 73, 73, 0.25);
+            }
+
+            span {
+                color: var(--text-color);
+            }
         }
-        .SecondOptions{
-            font-family: 'Monsterrat-Regular';
-            font-size: 20px;
+        .CarBottom{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .Price{
             font-family: 'Monsterrat-Medium';
             font-size: 25px;
-            margin-top: 19px;
-            margin-bottom: 10px;
-        }
-        .CarFirstRow{
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column
-        }
-        .CarSecondRow{
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column;
         }
         .CarButtonStore{
             display: flex;
+            gap: 10px;
+
             div{
-                width: 34px;
-                height: 34px;
+                width: 40px;
+                height: 40px;
+                border-radius: 6px;
+                background: rgba(255, 255, 255, 0.03);
                 background-position: center;
                 background-repeat: no-repeat;
-                background-size: 100%;
                 cursor: pointer;
-                transition:transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+                transition: all 0.3s ease;
 
-            }
-            div:hover{
-                transform: scale(1.1);
+                &:hover{
+                    background-color: rgba(255, 255, 255, 0.06);
+                }
             }
             .CarLike{
                 background-image: url('./img/like.svg');
@@ -87,7 +99,6 @@
             }
             .CarHide{
                 background-image: url('./img/hide.svg');
-                background-size: 103%;
             }
         }
 

@@ -1,4 +1,5 @@
 export interface ICar {
+  condition: string;
   img: any;
   mileage: number;
   carType: string;

@@ -11,6 +11,7 @@ import Preloader from "./components/Preloader/Preloader";
 import PageTransition from "./components/PageTransition/PageTransition";
 import { useScrollRestoration } from "./hooks/useScrollRestoration";
 import { useAppSelector } from "./store/store";
+import CarDetails from "./components/CarDetails/CarDetails";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,6 +43,7 @@ function App() {
               <Route path="/searchcar" element={<SearchForm />} />
               <Route path="/search" element={<SearchForm />} />
               <Route path="/profile" element={<div>Личный кабинет</div>} />
+              <Route path="/car/:id" element={<CarDetails />} />
             </Routes>
           </PageTransition>
         </>

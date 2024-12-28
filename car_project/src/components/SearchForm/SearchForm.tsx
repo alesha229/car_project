@@ -1,4 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+>>>>>>> 642d4c4 (Revert "hamburger menu")
 import { FC, useEffect, useState, ChangeEvent } from "react";
 import CustomSelect from "../CustomSelect/CustomSelect";
 import "./SearchForm.scss";
@@ -12,18 +17,86 @@ import { ICar } from "../../types";
 import favoriteFind from "./img/favoriteFind.png";
 import Loader from "../Loader/Loader";
 =======
+<<<<<<< HEAD
+=======
+>>>>>>> d2b70c6 (Revert "hamburger menu")
+>>>>>>> 642d4c4 (Revert "hamburger menu")
 import { FC, useEffect, useState } from 'react'
 import CustomSelect from '../CustomSelect/CustomSelect'
 import './SearchForm.scss'
 import { AppDispatch, useAppSelector } from '../../store/store'
 import { fetchSelect } from '../../store/slices/сarSlice'
 import { useDispatch } from 'react-redux'
+<<<<<<< HEAD
 >>>>>>> parent of b008c1d (hamburger menu)
+=======
+<<<<<<< HEAD
+import { resolvePath } from '../../utils/resolvePath'
+=======
+>>>>>>> parent of b008c1d (hamburger menu)
+>>>>>>> d2b70c6 (Revert "hamburger menu")
+>>>>>>> 642d4c4 (Revert "hamburger menu")
 
 interface SearchFormProps {
   results?: ICar[];
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+const SearchForm: FC<SearchFormProps> = ({ results = [] }) => {
+  const dispatch = useAppDispatch();
+  const {
+    selects,
+    selectedBrand,
+    selectedModel,
+    selectedYear,
+    selectedBody,
+    selectedTransmission,
+    selectedDrive,
+    selectedEngine,
+    selectedVolume,
+    priceFrom,
+    priceTo,
+    mileageFrom,
+    mileageTo,
+  } = useAppSelector((state) => state.select);
+  const { results: searchResults, status } = useAppSelector((state) => state.result);
+
+  useEffect(() => {
+    dispatch(fetchSelect());
+  }, [dispatch]);
+=======
+=======
+>>>>>>> 642d4c4 (Revert "hamburger menu")
+const SearchForm: FC = () => {
+	const [selectedBrand, setSelectedBrand] = useState<string>('')
+	const [selectedModel, setSelectedModel] = useState<any>('')
+	const [modelOptions, setModelOptions] = useState<IOption[]>([
+			{
+				"value": "none",
+				"label": "none"
+			}
+		])
+	const selects = useAppSelector(state => state.cars.selects)
+	const dispatch = useDispatch<AppDispatch>()
+	
+	useEffect(() => {
+		dispatch(fetchSelect())
+	}, [])
+	function resolvePath(path: string | string[], obj: any, separator = '.') { const properties = Array.isArray(path) ? path : path.split(separator); return properties.reduce((prev, curr) => prev && prev[curr], obj); }
+	useEffect(() => {
+		if(selectedBrand!=''){
+		setModelOptions(
+		Object.keys(resolvePath(selectedBrand, selects)).map((brand: string) => ({
+			value: brand,
+			label: brand,
+		}),))
+		}
+		setSelectedModel("")
+<<<<<<< HEAD
+		console.log(selectedModel)
+=======
+=======
 <<<<<<< HEAD
 const SearchForm: FC<SearchFormProps> = ({ results = [] }) => {
   const dispatch = useAppDispatch();
@@ -74,22 +147,70 @@ const SearchForm: FC = () => {
 		}
 		setSelectedModel("")
 		console.log(selectedModel)
+>>>>>>> d2b70c6 (Revert "hamburger menu")
+>>>>>>> 642d4c4 (Revert "hamburger menu")
 	}, [selectedBrand])
 	const brandOptions: IOption[] = Object.keys(selects).map((brand: string) => ({
 		value: brand,
 		label: brand,
 	}),)
+<<<<<<< HEAD
+	console.log(selects)
+	
+=======
+<<<<<<< HEAD
+=======
 	console.log(selects)
 	
 
 >>>>>>> parent of b008c1d (hamburger menu)
+>>>>>>> d2b70c6 (Revert "hamburger menu")
+>>>>>>> 642d4c4 (Revert "hamburger menu")
 
+>>>>>>> parent of b008c1d (hamburger menu)
+
+<<<<<<< HEAD
   const getFilteredModels = () => {
     if (!selectedBrand || !selects) return [];
     const brand = selects.brands.find((b: ISelectOption) => b.name === selectedBrand);
     return brand?.models ?? [];
   };
 
+<<<<<<< HEAD
+  const handleBrandChange = (value: string): void => {
+    dispatch(setSelectedBrand(value));
+    dispatch(setSelectedModel("")); // Reset model when brand changes
+  };
+
+  const handleModelChange = (value: string): void => {
+    dispatch(setSelectedModel(value));
+  };
+=======
+=======
+<<<<<<< HEAD
+>>>>>>> 642d4c4 (Revert "hamburger menu")
+	return (
+		<div className='form'>
+			<CustomSelect
+				placeholder='Марка авто'
+				options={brandOptions}
+				selectedOption={selectedBrand}
+				onOptionChange={setSelectedBrand}
+			/>
+			<CustomSelect
+				placeholder='Модель'
+				options={modelOptions}
+				selectedOption={selectedModel}
+				onOptionChange={setSelectedModel}
+				isDisabled={(selectedBrand == '') ? true:false}
+			/>
+		</div>
+	)
+}
+<<<<<<< HEAD
+>>>>>>> parent of b008c1d (hamburger menu)
+=======
+=======
 <<<<<<< HEAD
   const handleBrandChange = (value: string): void => {
     dispatch(setSelectedBrand(value));
@@ -119,6 +240,8 @@ const SearchForm: FC = () => {
 	)
 }
 >>>>>>> parent of b008c1d (hamburger menu)
+>>>>>>> d2b70c6 (Revert "hamburger menu")
+>>>>>>> 642d4c4 (Revert "hamburger menu")
 
   const handleYearChange = (value: string): void => {
     dispatch(setSelectedYear(value));

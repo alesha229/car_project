@@ -1,5 +1,10 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+>>>>>>> 642d4c4 (Revert "hamburger menu")
   "name": "car_project",
   "private": true,
   "version": "0.0.0",
@@ -42,6 +47,10 @@
     "vite": "^4.4.5"
   }
 =======
+<<<<<<< HEAD
+=======
+>>>>>>> d2b70c6 (Revert "hamburger menu")
+>>>>>>> 642d4c4 (Revert "hamburger menu")
 	"name": "car_project",
 	"private": true,
 	"version": "0.0.0",
@@ -73,7 +82,19 @@
 		"eslint-plugin-react-refresh": "^0.4.3",
 		"sass": "^1.64.2",
 		"typescript": "^5.0.2",
+<<<<<<< HEAD
 		"vite": "^4.4.5"
 	}
 >>>>>>> parent of b008c1d (hamburger menu)
+=======
+<<<<<<< HEAD
+		"vite": "^4.4.5",
+		"adaptive-scss": "^1.2.1"
+	}
+=======
+		"vite": "^4.4.5"
+	}
+>>>>>>> parent of b008c1d (hamburger menu)
+>>>>>>> d2b70c6 (Revert "hamburger menu")
+>>>>>>> 642d4c4 (Revert "hamburger menu")
 }

@@ -4,7 +4,7 @@ import "./SearchForm.scss";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { fetchSelectCars, SearchStates } from "../../store/slices/сarResSlice";
 import { fetchSelect, setSelectedBrand, setSelectedModel, setSelectedYear, setSelectedBody, setSelectedTransmission, setSelectedDrive, setSelectedEngine, setPriceFrom, setPriceTo, setMileageFrom, setMileageTo, setSelectedVolume } from "../../store/slices/selectSlice";
-import { ISelectOption, Selects } from "../../types/select.types";
+import { ISelectOption, Selects } from "../../types";
 import MainButton from "../MainButton/MainButton";
 import SearchResult from "../SearchResult/SearchResult";
 import { ICar } from "../../types";

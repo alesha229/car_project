@@ -1,30 +1,61 @@
+// Car interfaces
 export interface ICar {
-	id: number
-	name: string
-	year: number
-	mileage: number
-	liters: number
-	power: number
-	engineType: string
-	transmissionType: string
-	carType: string
-	price: string
-	img: string
-	isLiked: boolean
-	isCompare: boolean
-	isDescription: boolean
-	isHide: boolean
+  id: number;
+  brand: string;
+  model: string;
+  year: number;
+  mileage: number;
+  liters: string;
+  power: string;
+  engineType: string;
+  transmissionType: string;
+  carType: string;
+  price: number;
+  img: string;
+  condition: 'new' | 'used';
+  isLiked?: boolean;
+  isCompare?: boolean;
+  isDescription?: boolean;
+  isHide?: boolean;
 }
 
+// Select interfaces
 export interface ISelectOption {
-  [brand: string]: {
-    [model: string]: {
-      years: string[];
-      body: string[];
-      transmission: string[];
-      engine: string[];
-      drive: string[];
-      volume: string[];
-    };
-  };
+  name: string;
+  models: string[];
+}
+
+export interface Selects {
+  brands: ISelectOption[];
+  years: string[];
+  bodyTypes: string[];
+  transmissions: string[];
+  driveTypes: string[];
+  engineTypes: string[];
+  volumes: string[];
+  prices: string[];
+  mileages: string[];
+}
+
+// Button interfaces
+export interface IMainButtonProps {
+  action?: (parameters: string) => void;
+  label: string;
+  arrow: boolean;
+  btnStyle: string;
+  link: string;
+}
+
+// Car filters
+export interface ICarFilters {
+  brand?: string;
+  model?: string;
+  year?: number;
+  priceMin?: number;
+  priceMax?: number;
+  mileageMin?: number;
+  mileageMax?: number;
+  engineType?: string;
+  transmissionType?: string;
+  carType?: string;
 }

@@ -14,13 +14,17 @@ const CardCar: FC<ICardCarProps> = ({ carItem }) => {
     backgroundImage: `url(${car.img})`,
   };
 
+  const formatPrice = (price: number): string => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  };
+
   return (
     <>
       <div className="CardCar">
         <div className="CarImg" style={carImg}></div>
         <div className="CarOptions">
           <div className="CarName">
-            {car.brand} {car.model} <div className="Price">{car.price} ₽</div>
+            {car.brand} {car.model} <div className="Price">{formatPrice(car.price)} ₽</div>
           </div>
           <div className="CarProperties">
             <div className="CarProperty">
